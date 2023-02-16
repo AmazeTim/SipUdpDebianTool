@@ -1,7 +1,7 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Using [https://www.docker.com/](Docker)Docker to construct a Debian 10 environment
+Using [Docker](https://www.docker.com/) to construct a Debian 10 environment
 
 ### Prerequisites
 
