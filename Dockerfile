@@ -14,5 +14,6 @@ RUN yes Y | apt-get install build-essential
 RUN yes Y | apt-get install uuid-dev
 RUN yes Y | apt-get install libpcap-dev
 RUN gcc -pthread UDPclient.c -o UDPclient -lpcap -luuid
-RUN nc -ul -p $SPORT -c 'echo SIP/2.0 200 OK' &
+RUN echo -n "SIP/2.0 200 OK" | nc -ul localhost $SPORT &
 CMD ./UDPclient $SADDR $SPORT $CPORT $RETRY
+CMD echo 'test'
