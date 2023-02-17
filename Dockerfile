@@ -1,4 +1,5 @@
 FROM debian:10-slim
+RUN echo 'sipping tool testing!!!'
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install build-essential && apt-get install libpcap-dev && apt-get install uuid-dev
 EXPOSE 8088/udp

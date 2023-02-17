@@ -1,19 +1,22 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Using [Docker](https://www.docker.com/) to construct a Debian 10 environment
+Using [Docker](https://www.docker.com/) to construct a [Debian 10](https://www.debian.org/releases/index.zh-tw.html) environment.Attached dockerfile could help you setting up.
 
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+* Download the image
   ```sh
-  npm install npm@latest -g
+  docker pull debian:10-slim
   ```
-
+* Run the container
+  ```sh
+  docker run -name debian-container -p debian:10-slim
+  ```
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. 
 2. Clone the repo
    ```sh
    git clone https://github.com/github_username/repo_name.git

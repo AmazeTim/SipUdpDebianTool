@@ -99,7 +99,8 @@ int main(int argc, char *argv[]) {//-ip -port -max_retry
           close(s);
           pcap_breakloop(handle);
           pcap_close(handle);
-          pthread_join(t, NULL);
+          // pthread_join(t, NULL);
+          pthread_detach(t);
           exit(1);
         }
         perror("Sending falied");
@@ -123,7 +124,8 @@ int main(int argc, char *argv[]) {//-ip -port -max_retry
           close(s);
           pcap_breakloop(handle);
           pcap_close(handle);
-          pthread_join(t, NULL);
+          // pthread_join(t, NULL);
+          pthread_detach(t);
           exit(1);
         }
         perror("Receiving falied");
@@ -144,7 +146,8 @@ int main(int argc, char *argv[]) {//-ip -port -max_retry
           close(s);
           pcap_breakloop(handle);
           pcap_close(handle);
-          pthread_join(t, NULL);
+          // pthread_join(t, NULL);
+          pthread_detach(t);
           exit(1);
         }
         else{
@@ -161,7 +164,8 @@ int main(int argc, char *argv[]) {//-ip -port -max_retry
     close(s);
     pcap_breakloop(handle);
     pcap_close(handle);
-    pthread_join(t, NULL);
+    // pthread_join(t, NULL);
+    pthread_detach(t);
     exit(1);
   }
   else{
@@ -170,7 +174,8 @@ int main(int argc, char *argv[]) {//-ip -port -max_retry
     close(s);
     pcap_breakloop(handle);
     pcap_close(handle);
-    pthread_join(t, NULL);
+    // pthread_join(t, NULL);
+    pthread_detach(t);
     exit(0);
   }
 }
