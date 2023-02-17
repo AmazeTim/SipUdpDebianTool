@@ -21,22 +21,22 @@ Setting up
 
 1. Go to the path
    ```sh
-   cd /CloningPath/SipUdpDebianTool
+   cd /cloning/path/SipUdpDebianTool
    ```
-2. Set the variable `SADDR` , `SPORT` for server address and client port `CPORT` used by the client process. Also variable `RETRY` is used to set the maximum retry times.These variable can be set in `Dockerfile`.
+2. Set the variable `SADDR` , `SPORT` for server address (Default is [localhost](127.0.0.1):`9099`)and client port `CPORT` used by the client process. Also variable `RETRY` is used to set the maximum retry times. These variable can be set in `Dockerfile`.
    ```sh
    ENV CPORT='8088'
    ENV SPORT='9099'
-   ENV SADDR='0.0.0.0'
+   ENV SADDR='127.0.0.1'
    ENV RETRY='10'
    ```
 3. Build up the container by Dockerfile.
    ```sh
    docker build -t debian/sipping_test .
    ```
-4. Run the container for testing. Note that the `CPORT` in command `-p CPORT:CPORT` is same to your client port numbers.
+4. Run the container for testing.
    ```sh
-   docker run -p 8088:8088 debian/sipping_test
+   docker run --name sip_tool --network="host" debian/sipping_test
    ```
 
 <!-- USAGE EXAMPLES -->

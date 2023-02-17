@@ -95,7 +95,7 @@ int main(int argc, char *argv[]) {//-ip -port -max_retry
     slen=sendto(s,string,strlen(string),0,(struct sockaddr*)&servAddr,sizeof(servAddr));
     if ( slen < 0){
         if(i==(max_retry-1)){
-          perror("Sending failed and reach the max_retry times\n");
+          printf("Sending failed and reach the max_retry times\n");
           close(s);
           pcap_breakloop(handle);
           pcap_close(handle);
@@ -103,7 +103,7 @@ int main(int argc, char *argv[]) {//-ip -port -max_retry
           pthread_detach(t);
           exit(1);
         }
-        perror("Sending falied");
+        printf("Sending falied\n");
         // printf("Try %d times\n",i+1);
         // printf("Sleep %06ld\n",interval);
         usleep(interval);
@@ -120,7 +120,7 @@ int main(int argc, char *argv[]) {//-ip -port -max_retry
       rlen=recvfrom(s,buffer,BUFSIZE,0,NULL,NULL);
       if (rlen < 0){
         if(i==(max_retry-1)){
-          perror("Receiving failed and reach the max_retry times!");
+          printf("Receiving failed and reach the max_retry times!\n");
           close(s);
           pcap_breakloop(handle);
           pcap_close(handle);
@@ -128,7 +128,7 @@ int main(int argc, char *argv[]) {//-ip -port -max_retry
           pthread_detach(t);
           exit(1);
         }
-        perror("Receiving falied");
+        printf("Receiving falied\n");
         // printf("Try %d times\n",i+1);
         // printf("Sleep %06ld\n",interval);
         usleep(interval);
