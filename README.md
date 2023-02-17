@@ -52,5 +52,5 @@ Setting up
 ### Non-Functional Requirement:
 * Can compile and run on Debian 10 
 * Use [POSIX library](https://zh.wikipedia.org/zh-tw/C_POSIX_library) 
-* Sniff network traffic during your testing and save as .pcap (you can use tshark, tcpdump or sngrep) 
+* Sniff network traffic during your testing and save as .pcap -> using  `pthread.h` to imply `pcap.h` libarary and record the package data.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
