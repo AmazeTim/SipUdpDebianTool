@@ -1,7 +1,9 @@
 FROM debian:10-slim
 WORKDIR /app
-ENV CPORT=8088
-ENV SPORT=9099
+ENV CPORT='8088'
+ENV SPORT='9099'
+ENV SADDR='0.0.0.0'
+ENV RETRY='10'
 EXPOSE 8088 9099
 COPY headerFiles.h ./
 COPY UDPclient.c ./
@@ -12,4 +14,4 @@ RUN yes Y | apt-get install build-essential
 RUN yes Y | apt-get install uuid-dev
 RUN yes Y | apt-get install libpcap-dev
 RUN gcc -pthread UDPclient.c -o UDPclient -lpcap -luuid
-RUN ./UDPclient 0.0.0.0 SPORT CPORT 10
+RUN ./UDPclient $SADDR $SPORT $CPORT $RETRY

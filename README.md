@@ -23,7 +23,14 @@ Setting up
    ```sh
    cd /CloningPath/SipUdpDebianTool
    ```
-2. Run the container for testing
+2. Set the variable `SADDR` , `SPORT`for server address and `CPORT` for the client process using. Also variable `RETRY` is used to set the maximum retry times.These variable can be set in `Dockerfile`.
+   ```sh
+   ENV CPORT='8088'
+   ENV SPORT='9099'
+   ENV SADDR='0.0.0.0'
+   ENV RETRY='10'
+   ```
+3. Run the container for testing
    ```sh
    docker build -t debian/sipping_test .
    ```
