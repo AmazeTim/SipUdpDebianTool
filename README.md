@@ -1,4 +1,6 @@
 <!-- GETTING STARTED -->
+<a name="readme-top"></a>
+# Sipping Tools
 ## Getting Started
 
 Followling utilize [Docker](https://www.docker.com/) to construct a [Debian 10](https://www.debian.org/releases/index.zh-tw.html) environment. Attached dockerfile could help you to setup and test the sipping tool based on UDP.
@@ -17,26 +19,31 @@ Setting up
 
 ### Installation
 
-1. Run the container
+1. Go to the path
    ```sh
-   docker run -name debian-container -p debian:10-slim
+   cd /CloningPath/SipUdpDebianTool
    ```
-2. Install NPM packages
+2. Run the container for testing
    ```sh
-   npm install
+   docker build -t debian/sipping_test .
    ```
-3. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
+### Functional Requirement:
+* A tool “sipping” 
+* sipping supports three kinds of parameters: ip, port, max-retry 
+* sipping can send UDP SIP Options message to specified ip/port 
+* if max-retry is specified, sipping will try to resend message until reach limitation or reply is received. For example, if max-retry = 10, then sipping will resend message at most 10 times. The delay time between each retry should follow the [exponential backoff algorithm](https://www.baeldung.com/resilience4j-backoff-jitter) :
+  * multiplier = 2
+  * base = 500ms 
+  * max wait_interval = 8s
+* anytime when sipping receives a reply from testing target:
+  * If status code is 200, show success message, exit program with exit code 0 
+  * if status code is not 200, show error message, exit program with exit code 1
+* if reach max-retry limitation, show timeout message, exit program with exit code 1
+### Non-Functional Requirement:
+* Can compile and run on Debian 10 
+* Use [POSIX library](https://zh.wikipedia.org/zh-tw/C_POSIX_library) 
+* Sniff network traffic during your testing and save as .pcap (you can use tshark, tcpdump or sngrep) 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
