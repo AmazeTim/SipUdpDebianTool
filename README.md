@@ -30,7 +30,7 @@ Setting up
    ENV SADDR='127.0.0.1'
    ENV RETRY='10'
    ```
-3. Build up the container by Dockerfile.
+3. Build up the container by `Dockerfile`.
    ```sh
    docker build -t debian/sipping_test .
    ```
