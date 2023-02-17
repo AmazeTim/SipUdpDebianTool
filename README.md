@@ -1,24 +1,25 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Using [Docker](https://www.docker.com/) to construct a [Debian 10](https://www.debian.org/releases/index.zh-tw.html) environment.Attached dockerfile could help you to set up.
+Followling utilize [Docker](https://www.docker.com/) to construct a [Debian 10](https://www.debian.org/releases/index.zh-tw.html) environment. Attached dockerfile could help you to setup and test the sipping tool based on UDP.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* Download the image
-  ```sh
-  docker pull debian:10-slim
-  ```
+Setting up
 * Clone the repo
   ```sh
   git clone https://github.com/AmazeTim/SipUdpDebianTool.git
   ```
+* Download the image
+  ```sh
+  docker pull debian:10-slim
+  ```
+
 ### Installation
 
 1. Run the container
    ```sh
-  docker run -name debian-container -p debian:10-slim
+   docker run -name debian-container -p debian:10-slim
    ```
 2. Install NPM packages
    ```sh

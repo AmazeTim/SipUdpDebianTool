@@ -1,8 +1,15 @@
 FROM debian:10-slim
-RUN echo 'sipping tool testing!!!'
+WORKDIR /app
+ENV CPORT=8088
+ENV SPORT=9099
+EXPOSE 8088 9099
+COPY headerFiles.h ./
+COPY UDPclient.c ./
+RUN echo 'Sipping tool testing!!!'
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install build-essential && apt-get install libpcap-dev && apt-get install uuid-dev
-EXPOSE 8088/udp
-EXPOSE 9099/udp
+RUN yes Y | apt-get update 
+RUN yes Y | apt-get install build-essential
+RUN yes Y | apt-get install uuid-dev
+RUN yes Y | apt-get install libpcap-dev
 RUN gcc -pthread UDPclient.c -o UDPclient -lpcap -luuid
-RUN sudo ./UDPclient 0.0.0.0 9099 8088 10 
+RUN ./UDPclient 0.0.0.0 SPORT CPORT 10
