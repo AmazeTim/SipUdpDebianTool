@@ -4,6 +4,7 @@ ENV CPORT='8088'
 ENV SPORT='9099'
 ENV SADDR='0.0.0.0'
 ENV RETRY='10'
+EXPOSE $SPORT
 COPY headerFiles.h ./
 COPY UDPclient.c ./
 RUN echo 'Sipping tool testing!!!'
