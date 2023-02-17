@@ -1,7 +1,7 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Using [Docker](https://www.docker.com/) to construct a [Debian 10](https://www.debian.org/releases/index.zh-tw.html) environment.Attached dockerfile could help you setting up.
+Using [Docker](https://www.docker.com/) to construct a [Debian 10](https://www.debian.org/releases/index.zh-tw.html) environment.Attached dockerfile could help you to set up.
 
 ### Prerequisites
 
@@ -10,22 +10,21 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   docker pull debian:10-slim
   ```
-* Run the container
+* Clone the repo
   ```sh
-  docker run -name debian-container -p debian:10-slim
+  git clone https://github.com/AmazeTim/SipUdpDebianTool.git
   ```
 ### Installation
 
-1. 
-2. Clone the repo
+1. Run the container
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+  docker run -name debian-container -p debian:10-slim
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+3. Enter your API in `config.js`
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
