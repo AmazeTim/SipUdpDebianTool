@@ -25,8 +25,8 @@ Setting up
 2. Set the variable `SADDR` , `SPORT` for server address (Default is [localhost](127.0.0.1):`9099`)and client port `CPORT` used by the client process. Also variable `RETRY` is used to set the maximum retry times. These variable can be set in `Dockerfile`.
 
    ```sh
-   ENV CPORT='8088'
-   ENV SPORT='9099'
+   ENV CPORT='9099'
+   ENV SPORT='8088's
    ENV SADDR='127.0.0.1'
    ENV RETRY='10'
    ```
@@ -58,8 +58,11 @@ Setting up
 * Use [POSIX library](https://zh.wikipedia.org/zh-tw/C_POSIX_library) 
 * Sniff network traffic during your testing and save as .pcap -> using  `pthread.h` to implement `pcap.h` libarary and record the package data.
 
-## Demo screenshot
-![ Screen Shot][demo-screenshot]
+## Demo Screenshot
+Running in wsl
+
+[![Watch the video][demo-screenshot]](https://drive.google.com/file/d/1vTnsgbAeUdW2jl84vxRAX9gY522NHw1z/view?usp=share_link)
+<!--[ Screen Shot][demo-screenshot]-->
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->

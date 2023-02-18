@@ -7,12 +7,12 @@ ENV RETRY='10'
 EXPOSE $SPORT $CPORT
 COPY headerFiles.h ./
 COPY UDPclient.c ./
-RUN echo 'Sipping tool testing!!!'
 ARG DEBIAN_FRONTEND=noninteractive
 RUN yes Y | apt-get update 
 RUN yes Y | apt-get install build-essential
 RUN yes Y | apt-get install uuid-dev
 RUN yes Y | apt-get install libpcap-dev
+RUN yes Y | apt-get install netcat
 RUN gcc -pthread UDPclient.c -o UDPclient -lpcap -luuid
-RUN echo -n "SIP/2.0 200 OK" | nc -ul localhost $SPORT &
+RUN echo -n "SIP/2.0 200 OK" | nc -ul $SPORT &
 CMD ./UDPclient $SADDR $SPORT $CPORT $RETRY
